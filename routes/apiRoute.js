@@ -27,7 +27,10 @@ const createValidationFor = data => {
       return [];
   }
 };
+// check id is valid
 
 router.post("/add-post", createValidationFor("add"), controller.post);
+router.get("/get-post", controller.get);
+router.get("/post/:postId", controller.getOne);
 
 module.exports = router;
