@@ -14,7 +14,7 @@ const createValidationFor = data => {
           .trim()
           .escape()
           .isAlphanumeric(),
-        body("body")
+        body("data")
           .trim()
           .escape()
           .isAlphanumeric()
