@@ -1,11 +1,16 @@
 const express = require("express");
 const app = express();
+const db = require("./db/db");
+const basicRoutes = require("./routes/route");
 
+// routes
+
+//get routes
+app.use(basicRoutes);
+// connection
+db();
 //routs
 
-app.get("/", (req, res, next) => {
-  res.status(200).send("hello");
-});
 // port
 const port = process.env.port || 8000;
 
