@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const db = require("./db/db");
 const basicRoutes = require("./routes/route");
+const apiRoutes = require("./routes/route");
 
 // routes
 
 //get routes
 app.use(basicRoutes);
+//post routes
+app.use(apiRoutes);
 // connection
 db();
 //routs
