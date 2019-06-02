@@ -14,20 +14,43 @@ const createUser = async (title, data, date) => {
     console.log(error);
   }
 };
+// get specific post
 
 const getOne = async id => {
-  const data = await Post.findOne({ title: id });
-  if (data) {
-    console.log(data);
-    return data;
+  try {
+    const data = await Post.findOne({ title: id });
+    if (data) {
+      console.log(data);
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+// delete specific user
+
+const getDelete = async id => {
+  try {
+    const data = await Post.remove({ title: id });
+    if (data) {
+      console.log(data);
+      console.log("delete success !");
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
 const getUser = async () => {
-  const user = await Post.find();
-  if (user) {
-    console.log(user);
-    return user;
+  try {
+    const user = await Post.find();
+    if (user) {
+      console.log(user);
+      return user;
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -60,6 +83,15 @@ exports.get = async (req, res, next) => {
 exports.getOne = async (req, res, next) => {
   const id = req.params.postId;
   const data = await getOne(id);
+
+  res.status(200).json(data);
+};
+
+//  delete specific post
+
+exports.getDelete = async (req, res, next) => {
+  const id = req.params.postId;
+  const data = await getDelete(id);
 
   res.status(200).json(data);
 };

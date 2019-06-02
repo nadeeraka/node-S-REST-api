@@ -32,5 +32,6 @@ const createValidationFor = data => {
 router.post("/add-post", createValidationFor("add"), controller.post);
 router.get("/get-post", controller.get);
 router.get("/post/:postId", controller.getOne);
+router.get("/delete/:postId", controller.getDelete);
 
 module.exports = router;
