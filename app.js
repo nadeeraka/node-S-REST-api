@@ -2,8 +2,12 @@ const express = require("express");
 const app = express();
 const db = require("./db/db");
 const basicRoutes = require("./routes/route");
-const apiRoutes = require("./routes/route");
+const apiRoutes = require("./routes/apiRoute");
+const bodyParser = require("body-parser");
 
+// bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 
 //get routes
