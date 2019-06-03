@@ -95,3 +95,5 @@ exports.getDelete = async (req, res, next) => {
 
   res.status(200).json(data);
 };
+
+//  todo update specific post
